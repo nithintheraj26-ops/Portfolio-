@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nithin R · Personal Finance & Investing Educator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F3F6F1;--card:#FFFFFF;--ink:#14213A;--muted:#52607A;--rule:#CBD6C8;--accent:#0F6F61;--accent2:#C98A1B;--accent-ink:#fff;--glow:rgba(15,111,97,.18);
+--head:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;--body:'Newsreader',Georgia,serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0A1424;--card:#111F36;--ink:#EAF0F8;--muted:#A3B1C6;--rule:#233552;--accent:#4FC3AE;--accent2:#F0B54A;--accent-ink:#0A1424;--glow:rgba(79,195,174,.22)}}
+:root[data-theme="dark"]{--paper:#0A1424;--card:#111F36;--ink:#EAF0F8;--muted:#A3B1C6;--rule:#233552;--accent:#4FC3AE;--accent2:#F0B54A;--accent-ink:#0A1424;--glow:rgba(79,195,174,.22)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.65;overflow-x:hidden}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:980px;margin:0 auto;padding:0 1.25rem}
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));transform-origin:0 50%;transform:scaleX(0);z-index:30}
+header.top{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:color-mix(in srgb,var(--paper) 78%,transparent);border-bottom:1px solid var(--rule);padding-top:env(safe-area-inset-top,0px)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:.9rem;padding-bottom:.9rem;font-family:var(--head);font-weight:500;font-size:.95rem}
+header.top nav{display:flex;gap:1.2rem;flex-wrap:wrap}
+header.top a{color:var(--ink);text-decoration:none;position:relative}
+header.top nav a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+header.top nav a:hover::after{transform:scaleX(1)}
+/* hero */
+.hero{position:relative;min-height:calc(100vh - 3.5rem);display:flex;align-items:center;overflow:hidden;isolation:isolate}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;z-index:-1;animation:drift 18s ease-in-out infinite alternate}
+.o1{width:30rem;height:30rem;background:var(--accent);left:-8rem;top:-6rem;opacity:.28}
+.o2{width:26rem;height:26rem;background:var(--accent2);right:-6rem;top:20%;animation-duration:22s;opacity:.22}
+.o3{width:22rem;height:22rem;background:#3b6fd8;left:35%;bottom:-9rem;animation-duration:26s;opacity:.2}
+@keyframes drift{to{transform:translate(60px,-40px) scale(1.15)}}
+.chart{position:absolute;inset:auto 0 0 0;width:100%;height:55%;z-index:-1;opacity:.55}
+.chart path.line{fill:none;stroke:var(--accent);stroke-width:3;stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw 3.2s .6s cubic-bezier(.6,.1,.2,1) forwards}
+.chart path.area{fill:url(#g);opacity:0;animation:fade 1.6s 2.4s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+.coin{position:absolute;bottom:-3rem;width:1.1rem;height:1.1rem;border-radius:50%;background:var(--accent2);box-shadow:inset -2px -2px 0 rgba(0,0,0,.18);opacity:0;z-index:-1;animation:rise 9s linear infinite}
+@keyframes rise{0%{transform:translateY(0);opacity:0}10%{opacity:.8}90%{opacity:.5}100%{transform:translateY(-95vh) translateX(30px);opacity:0}}
+.eyebrow{font-family:var(--head);font-weight:500;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;color:var(--accent);margin:0 0 1.25rem;display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:2.5rem;height:2px;background:var(--accent)}
+.name{font-family:var(--head);font-weight:800;font-size:clamp(3.6rem,13vw,9rem);line-height:.92;letter-spacing:-.04em;margin:0 0 1.5rem}
+.name .ch{display:inline-block;opacity:0;transform:translateY(.6em) rotate(6deg);animation:pop .8s cubic-bezier(.2,.9,.3,1.2) forwards}
+@keyframes pop{to{opacity:1;transform:none}}
+.name,.name .ch{color:var(--accent)}
+.role{font-family:var(--head);font-weight:500;font-size:clamp(1.15rem,2.6vw,1.6rem);max-width:34ch;line-height:1.3;margin:0 0 1.25rem}
+.lede{max-width:54ch;color:var(--muted);margin:0 0 2rem}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{font-family:var(--head);font-weight:500;padding:.8rem 1.4rem;border-radius:999px;text-decoration:none;border:1.5px solid var(--accent);display:inline-block;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px var(--glow)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent)}
+.scroll{position:absolute;left:50%;bottom:1.25rem;width:1.6rem;height:2.6rem;border:2px solid var(--muted);border-radius:1rem;transform:translateX(-50%);opacity:.6}
+.scroll::after{content:"";position:absolute;left:50%;top:.45rem;width:.3rem;height:.5rem;background:var(--accent);border-radius:2px;transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{60%{transform:translate(-50%,.9rem);opacity:0}100%{opacity:0}}
+/* marquee */
+.marq{border-block:1px solid var(--rule);overflow:hidden;background:var(--card);padding:.9rem 0;font-family:var(--head);font-weight:500;white-space:nowrap}
+.marq div{display:inline-flex;gap:2.5rem;animation:slide 32s linear infinite;padding-left:2.5rem}
+.marq span::after{content:"✦";color:var(--accent2);margin-left:2.5rem}
+@keyframes slide{to{transform:translateX(-50%)}}
+/* sections */
+section{padding:5rem 0;border-top:1px solid var(--rule)}
+.marq+section{border-top:0}
+h2{font-family:var(--head);font-weight:800;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.025em;line-height:1.05;margin:0 0 1.75rem}
+p{margin:0 0 1rem;max-width:62ch}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1rem;margin-top:2.25rem}
+.stat{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:1.1rem 1.2rem}
+.stat b{display:block;font-family:var(--head);font-weight:800;font-size:2.6rem;line-height:1;color:var(--accent)}
+.stat span{font-size:.95rem;color:var(--muted)}
+.ledger{margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.ledger li{display:grid;grid-template-columns:3rem minmax(0,14rem) 1fr;gap:1rem;padding:1.1rem .75rem;border-bottom:1px solid var(--rule);transition:background .3s,padding-left .3s}
+.ledger li:hover{background:var(--card);padding-left:1.4rem}
+.ledger i{font-family:var(--head);font-style:normal;color:var(--accent2);font-weight:800}
+.ledger strong{font-family:var(--head);font-weight:500}
+.ledger span{color:var(--muted)}
+.project{position:relative;background:var(--card);border:1px solid var(--rule);padding:2.25rem;border-radius:20px;overflow:hidden;transform-style:preserve-3d;transition:transform .15s,box-shadow .3s}
+.project::before{content:"";position:absolute;inset:-1px;background:radial-gradient(500px circle at var(--mx,50%) var(--my,0%),var(--glow),transparent 60%);pointer-events:none}
+.project:hover{box-shadow:0 24px 60px var(--glow)}
+.project h3{font-family:var(--head);font-weight:800;font-size:clamp(1.6rem,4vw,2.4rem);margin:0 0 .75rem;letter-spacing:-.02em}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.25rem 0 1.5rem;padding:0;list-style:none}
+.tags li,.skills li{font-family:var(--head);font-size:.9rem;border:1px solid var(--rule);background:var(--paper);padding:.25rem .8rem;border-radius:999px;transition:transform .25s,border-color .25s}
+.skills li:hover,.tags li:hover{transform:translateY(-3px);border-color:var(--accent)}
+.timeline{list-style:none;margin:0;padding:0 0 0 1.5rem;position:relative}
+.timeline::before{content:"";position:absolute;left:0;top:.4rem;bottom:.4rem;width:2px;background:linear-gradient(var(--accent),var(--accent2));transform-origin:top;transform:scaleY(var(--p,0))}
+.timeline li{position:relative;padding:0 0 2rem 1.25rem}
+.timeline li::before{content:"";position:absolute;left:-1.95rem;top:.45rem;width:.9rem;height:.9rem;border-radius:50%;background:var(--paper);border:3px solid var(--accent)}
+.timeline li:first-child::before{background:var(--accent);box-shadow:0 0 0 0 var(--glow);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 12px transparent}}
+.timeline h3,.two h3{font-family:var(--head);font-size:1.3rem;margin:0}
+.timeline p{margin:0;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:1.2rem 1.4rem;margin-bottom:1rem;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px var(--glow)}
+.card p{margin:0;color:var(--muted)}
+.skills{display:flex;flex-wrap:wrap;gap:.5rem;margin:0;padding:0;list-style:none}
+footer{padding:4rem 0 3rem;border-top:1px solid var(--rule);text-align:center;color:var(--muted)}
+footer .big{font-family:var(--head);font-weight:800;font-size:clamp(2rem,6vw,4rem);color:var(--ink);letter-spacing:-.03em;margin:0 auto 1.5rem;max-width:none}
+footer p{margin-inline:auto}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+@media (max-width:700px){.ledger li{grid-template-columns:2rem 1fr}.ledger span{grid-column:2}.two{grid-template-columns:1fr;gap:0}section{padding:3.5rem 0}.project{padding:1.5rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.name .ch,.js .rv{opacity:1!important;transform:none!important}.chart path.line{stroke-dashoffset:0}.chart path.area{opacity:1}.timeline::before{transform:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<header class="top"><div class="wrap">
+  <span>Nithin R</span>
+  <nav aria-label="Sections"><a href="#about">About</a><a href="#topics">Topics</a><a href="#project">Project</a><a href="#experience">Experience</a><a href="#learning">Learning</a></nav>
+</div></header>
+
+<main>
+<div class="hero">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <svg class="chart" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".35"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>
+    <path class="area" d="M0 270 C80 262 120 240 200 232 S320 215 380 190 S480 200 540 160 S650 120 720 100 S850 60 1000 20 L1000 300 L0 300Z"/>
+    <path class="line" d="M0 270 C80 262 120 240 200 232 S320 215 380 190 S480 200 540 160 S650 120 720 100 S850 60 1000 20"/>
+  </svg>
+  <span class="coin" style="left:12%;animation-delay:0s"></span><span class="coin" style="left:30%;animation-delay:2.5s"></span><span class="coin" style="left:55%;animation-delay:5s"></span><span class="coin" style="left:78%;animation-delay:1.2s"></span><span class="coin" style="left:92%;animation-delay:6.5s"></span>
+  <div class="wrap">
+    <p class="eyebrow">Greater Bengaluru · India</p>
+    <h1 class="name" aria-label="Nithin R"><span class="grad" data-split>Nithin</span> <span data-split>R</span></h1>
+    <p class="role">Personal finance and investing educator. MBA student. Background verification professional.</p>
+    <p class="lede">I make money concepts simple for students and young professionals: budgeting, credit, SIPs, inflation and the everyday decisions in between.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://www.linkedin.com/in/nithin-r-801220294" rel="noopener">Connect on LinkedIn</a>
+      <a class="btn ghost" href="#project">See my project</a>
+    </div>
+  </div>
+  <div class="scroll" aria-hidden="true"></div>
+</div>
+
+<div class="marq" aria-hidden="true"><div>
+  <span>Budgeting</span><span>Credit scores</span><span>SIPs</span><span>Sovereign Gold Bonds</span><span>IPOs</span><span>Inflation</span><span>Markets and macro</span>
+  <span>Budgeting</span><span>Credit scores</span><span>SIPs</span><span>Sovereign Gold Bonds</span><span>IPOs</span><span>Inflation</span><span>Markets and macro</span>
+</div></div>
+
+<section id="about"><div class="wrap">
+  <h2 class="rv">About</h2>
+  <p class="rv" style="--d:.1s">I make personal finance easier to understand for students and early-career professionals. As an MBA student and working professional in background verification, I share practical explainers on budgeting, credit cards and credit scores, SIPs and long-term investing, inflation, and financial decisions that affect everyday life.</p>
+  <p class="rv" style="--d:.2s">My approach is simple: explain the concept, show the real-world impact, and encourage readers to verify facts and make informed decisions, not chase quick returns. I’m also learning how AI and data are shaping finance, and sharing that journey.</p>
+  <div class="stats">
+    <div class="stat rv" style="--d:.1s"><b data-count="7">0</b><span>core money topics</span></div>
+    <div class="stat rv" style="--d:.2s"><b data-count="2">0</b><span>currencies in my planner</span></div>
+    <div class="stat rv" style="--d:.3s"><b data-count="2">0</b><span>AI courses completed</span></div>
+    <div class="stat rv" style="--d:.4s"><b data-count="4">0</b><span>roles held</span></div>
+  </div>
+</div></section>
+
+<section id="topics"><div class="wrap">
+  <h2 class="rv">What I write about</h2>
+  <ul class="ledger">
+    <li class="rv"><i>01</i><strong>Budgeting and saving</strong><span>Pay yourself first, and build an emergency fund before relying on long-term investments.</span></li>
+    <li class="rv"><i>02</i><strong>Credit cards and scores</strong><span>Responsible credit use and what a credit score really reflects.</span></li>
+    <li class="rv"><i>03</i><strong>SIPs and mutual funds</strong><span>Direct vs regular plans, costs, and what to consider before switching.</span></li>
+    <li class="rv"><i>04</i><strong>Sovereign Gold Bonds</strong><span>Early redemption, annual interest and the factors behind redemption price.</span></li>
+    <li class="rv"><i>05</i><strong>IPOs</strong><span>Questions first-time investors can ask before applying.</span></li>
+    <li class="rv"><i>06</i><strong>Inflation</strong><span>How rising prices erode purchasing power over time.</span></li>
+    <li class="rv"><i>07</i><strong>Markets and macro</strong><span>How US rate decisions, currency moves and foreign investor flows can affect Indian markets.</span></li>
+  </ul>
+</div></section>
+
+<section id="project"><div class="wrap">
+  <h2 class="rv">Featured project</h2>
+  <div class="project rv" id="tilt">
+    <h3>Retirement Wish Planner</h3>
+    <p>A free tool where you choose a retirement goal and see the total savings needed, your gap, and a monthly amount to start saving. It works in US dollars and Indian rupees, and is built with plain HTML, CSS and JavaScript.</p>
+    <ul class="tags"><li>Financial Planning</li><li>Retirement Planning</li><li>HTML · CSS · JavaScript</li></ul>
+    <a class="btn primary" href="https://nithintheraj26-ops.github.io/Retirement-planner/" target="_blank" rel="noopener">Open the Retirement Wish Planner</a>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2 class="rv">Experience</h2>
+  <ol class="timeline" id="tl">
+    <li class="rv"><h3>Executive</h3><p>cFIRST Background Checks LLP</p><p>Apr 2026 – Present · Full-time</p></li>
+    <li class="rv"><h3>Store Manager</h3><p>V R Engineerings</p><p>Jul 2024 – Jun 2025 · Full-time · India</p></li>
+    <li class="rv"><h3>Accountant</h3><p>Uniwear Uniforms</p><p>Jun 2024 – Nov 2024 · Full-time · Bengaluru</p></li>
+    <li class="rv"><h3>Data Entry Specialist</h3><p>SJS Enterprises Limited</p><p>Mar 2024 – Jun 2024 · Part-time · Karnataka</p></li>
+  </ol>
+</div></section>
+
+<section id="learning"><div class="wrap">
+  <h2 class="rv">Education and learning</h2>
+  <div class="two">
+    <div>
+      <div class="card rv"><h3>MBA</h3><p>Mysore University · 2026 – 2028</p></div>
+      <div class="card rv" style="--d:.1s"><h3>BBA, Marketing</h3><p>Bangalore University · 2022 – 2025</p></div>
+    </div>
+    <div>
+      <div class="card rv"><h3>AI in Finance</h3><p>SkillUp Online · Oct 2026</p></div>
+      <div class="card rv" style="--d:.1s"><h3>Introduction to Artificial Intelligence</h3><p>SkillUp Online · Oct 2026</p></div>
+      <div class="card rv" style="--d:.2s"><h3>Business Analytics with Excel</h3><p>Microsoft</p></div>
+    </div>
+  </div>
+  <h2 class="rv" style="font-size:1.6rem;margin-top:2rem">Skills</h2>
+  <ul class="skills rv"><li>Financial Literacy</li><li>Research</li><li>Documentation</li><li>Background Checks</li><li>Professional Communication</li><li>Microsoft Excel</li></ul>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p class="big rv">Let’s connect.</p>
+  <p class="rv"><a class="btn primary" href="https://www.linkedin.com/in/nithin-r-801220294" rel="noopener">linkedin.com/in/nithin-r-801220294</a></p>
+  <p class="rv" style="margin-top:1.5rem;font-size:.95rem">Content here is for education, not financial advice. Verify facts and decide for yourself.</p>
+</div></footer>
+
+<script>
+(function(){
+  var rm=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  document.documentElement.classList.add('js');
+  // split name letters
+  var n=0;
+  document.querySelectorAll('[data-split]').forEach(function(el){
+    var t=el.textContent;el.textContent='';
+    t.split('').forEach(function(c){var s=document.createElement('span');s.className='ch';s.textContent=c;s.style.animationDelay=(0.15+n*0.07)+'s';s.setAttribute('aria-hidden','true');el.appendChild(s);n++});
+  });
+  // reveal
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  // counters
+  var co=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;co.unobserve(e.target);
+    var end=+e.target.dataset.count;if(rm){e.target.textContent=end;return}
+    var t0=performance.now();(function f(t){var p=Math.min((t-t0)/1400,1);e.target.textContent=Math.round(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0);
+  })},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(el){co.observe(el)});
+  // scroll progress + timeline draw
+  var bar=document.getElementById('bar'),tl=document.getElementById('tl');
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-innerHeight;
+    bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';
+    var r=tl.getBoundingClientRect();
+    tl.style.setProperty('--p',Math.max(0,Math.min(1,(innerHeight*0.75-r.top)/r.height)));
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  // card tilt + spotlight
+  var c=document.getElementById('tilt');
+  if(!rm&&matchMedia('(hover:hover)').matches){
+    c.addEventListener('mousemove',function(e){var b=c.getBoundingClientRect(),x=(e.clientX-b.left)/b.width,y=(e.clientY-b.top)/b.height;
+      c.style.transform='perspective(900px) rotateX('+((.5-y)*6)+'deg) rotateY('+((x-.5)*8)+'deg)';
+      c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%')});
+    c.addEventListener('mouseleave',function(){c.style.transform=''});
+  }
+})();
+</script>
+</body>
+</html>
